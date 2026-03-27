@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs") %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Home</title>
+</head>
+<body>
+  <h1>blogDaddy</h1>
+  <a href="/new" class="newPost">Create New Post</a>
+  <div>
+    <% posts.forEach(post => { %>
+      <div class="post">
+
+        <span class="timestamp">Posted at: <%= new Date(post.createdAt).toLocaleString() %></span>
+          <h2><%= post.title %></h2>
+          <p><%= post.content %></p>
+          <div class="actions">
+
+            <form action="/delete/<%= post.id %>" method="POST">
+              <button type="submit" class=" button delete" onclick="return confirm('Are you sure you want to delete this post?');"> 
+                delete
+              </button>
+            </form>
+            
+            <form action="/edit/<%= post.id %>" method="GET" style="display:inline;">
+              <button type="submit" class="button edit">edit</button>
+            </form>
+
+          </div>
+
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>
+
+<%- include("partials/footer.ejs") %>
