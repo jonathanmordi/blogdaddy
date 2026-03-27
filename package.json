@@ -2,7 +2,6 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "type": "module"
+    "express": "^5.1.0"
   }
 }
